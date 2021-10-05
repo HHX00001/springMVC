@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 align="center">成了</h1>
+<br>
+<div align="center">
+    <p th:text="${scope}"></p>
+    <p th:text="${session.scope}"></p>
+    <p th:text="${application.scope}"></p>
+
+</div>
+</body>
+</html>

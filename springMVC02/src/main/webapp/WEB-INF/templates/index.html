@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<div align="center">
+    <p>惠恒星的首页</p>
+    <a th:href="@{/outer/testRequest}">重定向</a>
+    <br/>
+
+    <form th:action="@{/testRequest(user=hhh)}" method="post">
+        <table>
+            <tr>
+                <td>测试请求方法</td>
+            </tr>
+            <tr>
+                <td align="center"><input type="submit"></td>
+            </tr>
+        </table>
+    </form>
+    <br/>
+
+    <a th:href="@{/testParams(username='惠恒星',password=123456)}">测试请求参数</a>
+    <br/>
+    <a th:href="@{/testPath/root/123456}">测试请求路径</a>
+</div>
+</body>
+</html>

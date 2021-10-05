@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>add employee</title>
+</head>
+<body>
+<div align="center">
+    <form th:action="@{/employee}" method="post">
+        姓名:<input type="text" name="lastName"><br>
+        邮箱：<input type="text" name="email"><br>
+        性别：male:<input type="radio" name="gender" value="1">female:<input type="radio" name="gender" value="0"><br>
+        <input type="submit" value="添加员工"><br>
+    </form>
+</div>
+</body>
+</html>

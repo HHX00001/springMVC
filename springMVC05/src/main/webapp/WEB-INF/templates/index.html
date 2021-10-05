@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h1 align="center">首页</h1>
+<div align="center">
+    <form th:action="@{/testRequestBody}" method="post">
+        用户名：<input type="text" name="username"><br>
+        密码：<input type="password" name="password"><br>
+        <input type="submit" value="提交请求体">
+    </form>
+    <hr>
+    <form th:action="@{/testRequestEntity}" method="post">
+        用户名：<input type="text" name="username"><br>
+        密码：<input type="password" name="password"><br>
+        <input type="submit" value="提交请求实体">
+    </form>
+    <hr>
+    <a th:href="@{/testResponse}">测试servletAPI响应</a>
+    <hr>
+    <a th:href="@{/testResponseBody}">测试@ResponseBody响应1</a>
+    <hr>
+    <a th:href="@{/testResponseUser}">测试@ResponseBody响应2</a>
+    <hr>
+
+    <div id="app">
+        <a @click="testAxios" th:href="@{/testAxios}">springMVC处理ajax</a>
+    </div>
+    <script type="text/javascript" th:src="@{/static/js/vue.js}"></script>
+    <script type="text/javascript" th:src="@{/static/js/axios.min.js}"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: "#app",
+            methods: {
+                testAxios: function (event) {
+                    axios({
+                        method: "post",
+                        url: event.target.href,
+                        params: {
+                            username: "admin",
+                            password: "123456"
+                        }
+                    }).then(function (response) {
+                        alert(response.data);
+                    });
+                    event.preventDefault();
+                }
+            }
+        });
+    </script>
+</div>
+</body>
+</html>
